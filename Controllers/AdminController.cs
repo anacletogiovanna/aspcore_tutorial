@@ -2,10 +2,20 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 namespace aspcore_tutorial.Controllers
 {
+    [Route("painel/admin")]
     public class AdminController : Controller 
     {
-         public IActionResult Index(){
-             return Content("Ola mundo! Eu quero uma branch nova CCCCCCCCCC");
+        [HttpGet("{nome}")]
+         public IActionResult Index(string nome){
+             return Content("Olá,  " + nome);
          }
+         
+        //tipando um parametro na rota
+        //tornando o parametro opcional
+        [HttpGet("soma/{numero:int?}/{nome}")]
+         public IActionResult Soma(int numero, string nome){
+             return Content("O número é: " + numero + " e o nome é " + nome);
+         }   
+
     }
 }
