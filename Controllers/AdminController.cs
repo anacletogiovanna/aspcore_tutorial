@@ -5,7 +5,7 @@ namespace aspcore_tutorial.Controllers
     public class AdminController : Controller 
     {
          public IActionResult Index(){
-             return Content("Ola mundo! Eu quero uma branch nova AAAAAAAAAAa");
+             return Content("Ola mundo! Eu quero uma branch nova BBBBBBBBBB");
          }
     }
 }
