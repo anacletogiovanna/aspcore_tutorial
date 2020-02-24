@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.Extensions.Primitives;
+
 namespace aspcore_tutorial.Controllers
 {
     [Route("painel/admin")]
@@ -30,7 +32,24 @@ namespace aspcore_tutorial.Controllers
         public IActionResult ViewProduto(){
             ViewData["helloWorld"] = "Ola mundo";
             return View();
+        }
+
+        //fazendo um formulario
+        [HttpGet("formulario")]
+        public IActionResult FormProduto(){
+            return View();
         } 
+
+        [HttpPost("enviarDados")]
+        public IActionResult EnviarDados(){
+            StringValues nome;
+            StringValues preco;
+
+            Request.Form.TryGetValue("nome", out nome);
+            Request.Form.TryGetValue("preco", out preco);
+
+            return Content("Formulário Enviado " + nome + " " + preco);
+        }
 
     }
 }
