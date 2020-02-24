@@ -17,5 +17,12 @@ namespace aspcore_tutorial.Controllers
              return Content("O número é: " + numero + " e o nome é " + nome);
          }   
 
+        [HttpGet("produto")]
+         public IActionResult QueryString(){
+             var id = Request.Query["id"];
+             return Content("O seu id é: " + id);
+
+         }
+
     }
 }
